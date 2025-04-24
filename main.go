@@ -118,7 +118,7 @@ func (o *organism) evolve() { // evolve the organism
 
 	for i := 1; i <= offspringMaxCount; i++ { // generate the offspring with a goroutine for each
 		wg.Add(1)
-		go mutate(i, o.guess, o.answer, ch, &wg) //	launch the goroutine
+		go mutate(i, o.guess, o.answer, ch, &wg) // launch the goroutine
 	}
 	go func(ch chan offspring, wg *sync.WaitGroup) { // wait for all the offspring to be generated
 		wg.Wait()
